@@ -1,6 +1,6 @@
 from random import randint
 
-options = {'rock' : 0, 'paper': 1, 'scissors' : 2}
+options = {'rock' : 2, 'paper': 3, 'scissors' : 4}
 win = 1
 loss = 0
 tie = 'tie'
@@ -13,3 +13,5 @@ def game(selection):
 		player_choice = options[selection]
 		cpu_choice = randint(range(3))
 		if player == 0
+
+#This is a test#
