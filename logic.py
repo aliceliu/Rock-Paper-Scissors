@@ -1,15 +1,15 @@
 from random import randint
 
-options = {'rock' : 0, 'paper': 1, 'scissors' : 2}
+options = {2 : 'rock', 3 : 'paper', 4 : 'scissors'}
 win = 1
 loss = 0
 tie = 'tie'
 
-def game(selection):
-		def rocks(opponent):
-			if opponent == 0:
+def game(player_choice):
+		def rock_chosen(opponent):
+			if opponent
 				return tie
+			else if 
 
-		player_choice = options[selection]
-		cpu_choice = randint(range(3))
-		if player == 0
+		cpu_choice = randint(range(2,5))
+		if player == 
