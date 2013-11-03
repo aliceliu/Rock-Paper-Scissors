@@ -14,26 +14,26 @@ def get_cpu_choice():
     return options[randint(0,2)]
 
 def rock_chosen(opponent):
-        if opponent == 'rock':
-            return tie
-        elif opponent == 'scissors':
-            return win
-        return loss
+    if opponent == 'rock':
+        return tie
+    elif opponent == 'scissors':
+        return win
+    return loss
 
-    def paper_chosen(opponent):
-        if opponent == 'paper':
-            return tie
-        elif opponent == 'rock':
-            return win
-        return loss
+def paper_chosen(opponent):
+    if opponent == 'paper':
+        return tie
+    elif opponent == 'rock':
+        return win
+    return loss
 
-    def scissors_chosen(opponent):
-        if opponent == 'scissors':
-            return tie
-        elif opponent == 'paper':
-            return win
-        return loss
-        
+def scissors_chosen(opponent):
+    if opponent == 'scissors':
+        return tie
+    elif opponent == 'paper':
+        return win
+    return loss
+    
 functions = {'rock': rock_chosen, 
              'paper': paper_chosen, 
              'scissors': scissors_chosen}
