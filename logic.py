@@ -15,10 +15,10 @@ results = {('rock', 'rock'): tie,
            ('paper', 'scissors'): loss
                     }
 
-def randomchoice():
+def get_computer_choice():
     return choice(['rock','paper','scissors'])
 
-def play(player_choice, opponent):
+def get_result(player_choice, opponent):
     return results[(player_choice, opponent)]
 
 
