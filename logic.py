@@ -1,13 +1,19 @@
 from random import randint
 
-options = {2 : 'rock', 3 : 'paper', 4 : 'scissors'}
-win = 1
-loss = 0
-tie = 'tie'
+options = {0 : 'rock', 1 : 'paper', 2 : 'scissors'}
+win = 'Congratulations, you won!'
+loss = 'Sorry, but you lost this time.'
+tie = "It's a tie, play again!"
 
-def game(player_choice):
+def play(player_choice, opponent):
+    return functions[player_choice](opponent)
 
-    def rock_chosen(opponent):
+########### Game Logic #############
+
+def get_cpu_choice():
+    return options[randint(0,2)]
+
+def rock_chosen(opponent):
         if opponent == 'rock':
             return tie
         elif opponent == 'scissors':
@@ -28,7 +34,6 @@ def game(player_choice):
             return win
         return loss
         
-    functions = {'rock':rock_chosen, 'paper':paper_chosen,
-     'scissors':scissors_chosen}
-    cpu_choice = options[randint(2,4)]
-    return functions[player_choice](cpu_choice)
+functions = {'rock': rock_chosen, 
+             'paper': paper_chosen, 
+             'scissors': scissors_chosen}
