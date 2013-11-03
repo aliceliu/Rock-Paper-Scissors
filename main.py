@@ -15,11 +15,34 @@
 # limitations under the License.
 #
 import webapp2
+import jinja2
+import os
+import logging
+import logic
+
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        template_values = {}
+        template = jinja_environment.get_template("home.html")
+        self.response.out.write(template.render(template_values))
+        
+class ResultHandler(webapp2.RequestHandler):
+    def get(self):
+    	user_choice = self.request.get("choice")
+    	computer_choice = get_computer_choice()
+    	result = get_result(user_choice, computer_choice)
+        template_values = {
+        				   "user_choice":user_choice,
+        				   "computer_choice":computer_choice,
+        				   "result":result
+        				   }
+        template = jinja_environment.get_template("result.html")
+        self.response.out.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/result', ResultHandler)
 ], debug=True)
