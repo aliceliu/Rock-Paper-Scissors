@@ -1,34 +1,26 @@
-from random import randint
+from random import choice
 
-options = {2 : 'rock', 3 : 'paper', 4 : 'scissors'}
-win = 1
-loss = 0
-tie = 'tie'
+win = 'Congratulations, you won!'
+loss = 'Sorry, but you lost this time.'
+tie = "It's a tie, play again!"
 
-def game(player_choice):
+results = {('rock', 'rock'): tie,
+           ('rock', 'scissors'): win,
+           ('rock', 'paper'): loss,
+           ('scissors', 'scissors'): tie,
+           ('scissors', 'paper'): win,
+           ('scissors', 'rock'): loss,
+           ('paper', 'paper'): tie,
+           ('paper', 'rock'): win,
+           ('paper', 'scissors'): loss
+                    }
 
-    def rock_chosen(opponent):
-        if opponent == 'rock':
-            return tie
-        elif opponent == 'scissors':
-            return win
-        return loss
+def get_computer_choice():
+    return choice(['rock','paper','scissors'])
 
-    def paper_chosen(opponent):
-        if opponent == 'paper':
-            return tie
-        elif opponent == 'rock':
-            return win
-        return loss
+def get_result(player_choice, opponent):
+    return results[(player_choice, opponent)]
 
-    def scissors_chosen(opponent):
-        if opponent == 'scissors':
-            return tie
-        elif opponent == 'paper':
-            return win
-        return loss
-        
-    functions = {'rock':rock_chosen, 'paper':paper_chosen,
-     'scissors':scissors_chosen}
-    cpu_choice = options[randint(2,4)]
-    return functions[player_choice](cpu_choice)
+
+
+
