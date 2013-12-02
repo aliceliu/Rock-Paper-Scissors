@@ -2,7 +2,7 @@ from random import choice
 
 win = 'Congratulations, you won!'
 loss = 'Sorry, but you lost this time.'
-tie = "It's a tie, play again!"
+tie = "It's a tie, play again!!"
 
 results = {('rock', 'rock'): tie,
            ('rock', 'scissors'): win,
